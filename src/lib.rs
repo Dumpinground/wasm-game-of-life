@@ -11,9 +11,15 @@ static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 #[wasm_bindgen]
 extern {
     fn alert(s: &str);
+    // fn ask(s: &str);
 }
 
 #[wasm_bindgen]
-pub fn greet() {
-    alert("Hello, wasm-game-of-life!");
+pub fn greet(name: &str) {
+    alert(&format!("Hello, {}!", name));
 }
+
+// #[wasm_bindgen]
+// pub fn ask(name: &str) {
+//     alert(&format!("Hello, {}!", name));
+// }
